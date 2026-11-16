@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+Venv/
+venv/
+.venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Local uploads and generated files
+media/
+uploads/
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# Test, type-check, and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE and operating system files
+.idea/
+.DS_Store
+Thumbs.db
