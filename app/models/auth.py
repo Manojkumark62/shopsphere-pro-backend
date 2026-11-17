@@ -4,6 +4,22 @@ from datetime import datetime, timezone
 from sqlalchemy import String, Boolean, DateTime, Enum, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.customer_registration import CustomerProfile, EmailVerification
+    from app.models.customer_address import CustomerAddress
+    from app.models.customer_profile_management import AccountDeactivationRequest, ProfileChangeHistory
+    from app.models.user_management import UserActivity
+    from app.models.coupon import Coupon, CouponUsage
+    from app.models.product import ProductPrice
+    from app.models.inventory import InventoryMovement, StockThresholdHistory
+    from app.models.inventory_transfer import InventoryTransfer, InventoryTransferMovement
+    from app.models.wishlist import WishlistItem
+    from app.models.cart import ShoppingCart
+
+
+
 
 class UserRole(str, enum.Enum):
     CUSTOMER = "customer"

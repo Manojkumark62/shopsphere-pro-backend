@@ -3,6 +3,11 @@ from decimal import Decimal
 from sqlalchemy import String, Numeric, Integer, Boolean, DateTime, ForeignKey, CheckConstraint, Index
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.auth import User
+
 
 class Coupon(Base):
     __tablename__ = "coupons"

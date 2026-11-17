@@ -2,6 +2,19 @@ from datetime import datetime, timezone
 from sqlalchemy import String, Integer, Boolean, DateTime, ForeignKey, Numeric, JSON
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.product import Product
+    from app.models.product_media import ProductMedia
+    from app.models.product_pricing import ProductPrice
+    from app.models.inventory import Inventory
+    from app.models.cart import CartItem
+    from app.models.wishlist import WishlistItem
+    from app.models.inventory_transfer import InventoryTransfer
+    from app.models.warehouse_inventory import WarehouseInventory
+    from app.models.low_stock import StockThreshold
+    from app.models.low_stock import StockRestockAlert
 
 
 class ProductVariant(Base):

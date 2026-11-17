@@ -4,6 +4,14 @@ from datetime import datetime
 from sqlalchemy import String, Integer, Boolean, DateTime, Enum
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.warehouse_inventory import WarehouseInventory
+    from app.models.inventory_transfer import InventoryTransfer
+    from app.models.low_stock import StockThreshold
+    from app.models.low_stock import StockRestockAlert
+    from app.models.inventory_transfer import InventoryTransferMovement
 
 class WarehouseStatus(str, enum.Enum):
     ACTIVE = "active"

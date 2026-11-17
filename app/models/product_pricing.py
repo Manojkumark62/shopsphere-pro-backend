@@ -4,6 +4,12 @@ from decimal import Decimal
 from sqlalchemy import Integer, Boolean, DateTime, ForeignKey, Numeric, Index
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.user_management import User
+    from app.models.product import Product
+    from app.models.product_variant import ProductVariant
 
 class ProductPrice(Base):
     __tablename__ = "product_prices"

@@ -13,6 +13,13 @@ from sqlalchemy import (
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.connection import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.warehouse import Warehouse
+    from app.models.product import Product
+    from app.models.product_variant import ProductVariant
+    from app.models.user_management import User
 
 
 class TransferStatus(str, enum.Enum):

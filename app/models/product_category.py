@@ -2,6 +2,12 @@ from datetime import datetime, timezone
 from sqlalchemy import String, Integer, Boolean, DateTime, ForeignKey, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.product import Product
+    from app.models.product_category import ProductCategory
+    from app.models.product_attribute import CategoryAttribute
 
 
 class ProductCategory(Base):

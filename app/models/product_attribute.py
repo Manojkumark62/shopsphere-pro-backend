@@ -1,8 +1,14 @@
 
 from datetime import datetime
+from typing import TYPE_CHECKING
 from sqlalchemy import String, Integer, Boolean, DateTime, ForeignKey, UniqueConstraint, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
+
+if TYPE_CHECKING:
+    from app.models.product import Product
+    from app.models.product_category import ProductCategory
+
 
 class ProductAttribute(Base):
     __tablename__ = "product_attributes"

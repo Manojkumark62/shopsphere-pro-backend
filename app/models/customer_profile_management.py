@@ -3,6 +3,10 @@ from sqlalchemy import String, Integer, DateTime, ForeignKey, Text, Enum
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 import enum
 from app.database.connection import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.auth import User
 
 
 class DeactivationStatus(str, enum.Enum):

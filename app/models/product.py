@@ -3,7 +3,22 @@ from sqlalchemy import String, Integer, Boolean, DateTime, ForeignKey, Text, Num
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 import enum
 from app.database.connection import Base
+from typing import TYPE_CHECKING
 
+if TYPE_CHECKING:
+    from app.models.brand import Brand
+    from app.models.product_variant import ProductVariant
+    from app.models.product_attribute import ProductAttributeValue
+    from app.models.product_category import ProductCategory
+    from app.models.product_media import ProductMedia
+    from app.models.product_pricing import ProductPrice
+    from app.models.inventory import Inventory
+    from app.models.cart import CartItem
+    from app.models.wishlist import WishlistItem
+    from app.models.inventory_transfer import InventoryTransfer
+    from app.models.warehouse_inventory import WarehouseInventory
+    from app.models.low_stock import StockThreshold
+    from app.models.low_stock import StockRestockAlert
 
 class ProductStatus(str, enum.Enum):
     DRAFT = "draft"

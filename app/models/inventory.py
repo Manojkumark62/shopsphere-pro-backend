@@ -4,6 +4,13 @@ from sqlalchemy import Integer, String, DateTime, ForeignKey, Enum, UniqueConstr
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 import enum
 from app.database.connection import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.models.product import Product
+    from app.models.product_variant import ProductVariant
+    from app.models.user_management import User
+
 
 class InventoryMovementType(str, enum.Enum):
     STOCK_IN = "stock_in"
