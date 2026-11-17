@@ -18,6 +18,16 @@ from app.models import (
     product_media,
     product_variant,
     user_management,
+    product_attribute,
+    product_pricing,
+    inventory,
+    warehouse,
+    warehouse_inventory,
+    inventory_transfer,
+    low_stock,
+    cart,
+    wishlist,
+    coupon,
 )
 
 target_metadata = Base.metadata

@@ -1,7 +1,7 @@
 
 from datetime import datetime, timezone
 from sqlalchemy import String, DateTime, ForeignKey, Boolean
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
 
 class CustomerProfile(Base):
@@ -11,6 +11,7 @@ class CustomerProfile(Base):
     full_name: Mapped[str] = mapped_column(String(150), nullable=False)
     phone_number: Mapped[str] = mapped_column(String(20), unique=True, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
+    user: Mapped["User"] = relationship(back_populates="customer_profile")
 
 class EmailVerification(Base):
     __tablename__ = "email_verifications"
@@ -20,3 +21,4 @@ class EmailVerification(Base):
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     is_used: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
+    user: Mapped["User"] = relationship(back_populates="email_verifications")

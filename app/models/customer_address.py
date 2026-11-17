@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from sqlalchemy import String, Integer, Boolean, DateTime, ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
 
 
@@ -22,3 +22,4 @@ class CustomerAddress(Base):
     is_default_shipping: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc), nullable=False)
+    user: Mapped["User"] = relationship(back_populates="customer_addresses")

@@ -2,7 +2,7 @@
 import enum
 from datetime import datetime
 from sqlalchemy import String, Integer, Boolean, DateTime, ForeignKey, Enum
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.connection import Base
 
 class MediaType(str, enum.Enum):
@@ -24,3 +24,5 @@ class ProductMedia(Base):
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     is_primary: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
+    product: Mapped["Product"] = relationship(back_populates="media")
+    variant: Mapped["ProductVariant | None"] = relationship(back_populates="media")
